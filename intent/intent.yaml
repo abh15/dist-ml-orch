@@ -1,0 +1,11 @@
+intentID: edgeintent01    #unique ID for every intent
+targets:
+    - id: factory.all
+      operation: maximise
+      operand: robots.welding.accuracy
+      constraints:
+        privacylevel: high
+
+
+# Equivalent intent in English is-
+# Maximise welding accuracy of robots in factory-001 while maintaining high level of privacy and using maximum 10 GPUs 

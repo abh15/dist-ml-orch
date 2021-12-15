@@ -1,0 +1,8 @@
+intentID: edgeintent02    #unique ID for every intent
+targets:
+    - id: factory.all
+      operation: maximise
+      operand: robots.drilling.accuracy
+      constraints:
+        privacylevel: high
+
