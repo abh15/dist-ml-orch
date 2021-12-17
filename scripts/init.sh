@@ -1,5 +1,5 @@
 #!/bin/bash
-for i in {1..$1}
+for ((i=1;i<=$1;i++))
 do
    docker update --cpus 2 mn.fed.$i
 done

@@ -1,4 +1,5 @@
 import sys
+import os
 from mininet.net import Containernet
 from mininet.node import Controller, RemoteController, OVSSwitch
 from mininet.cli import CLI
@@ -7,7 +8,7 @@ from mininet.log import info, setLogLevel
 
 setLogLevel('info')
 
-promconfig="prometheus.yml"
+promconfig=os.path.abspath("prometheus.yml")
 
 net = Containernet(controller=Controller, switch=OVSSwitch)
 info('*** Adding controller\n')

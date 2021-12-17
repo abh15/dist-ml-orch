@@ -1,5 +1,5 @@
 #!/bin/bash
-for i in {1..$1}
+for ((i=1;i<=$1;i++))
 do
         docker exec -it mn.cloud.0 ping -c 2 10.0.0.10$1
 done

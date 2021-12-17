@@ -46,7 +46,7 @@ onos> `app activate org.onosproject.fwd`
 ### Create topology
 1. Copy scripts directory to containernet directory
 
-2. Make sure promconfig is set to correct path
+2. Make sure promconfig in *topo.py* is set to correct path
 
 3. `cd containernet/scripts`
 	
@@ -58,13 +58,19 @@ onos> `app activate org.onosproject.fwd`
 
 	`bash init.sh <num of cohorts> #e.g bash init.sh 5`
 
-	In terminal 3 execute following to test ping reachibility of topology nodes
+	In terminal 3 execute following to test ping reachibility of topology nodes. Note that this may take long time. You may skip this step
 	
 	`bash pingtest.sh`
 
 
 ### Send intent
-We send intents to MLFO from a remote machine. 
+We send intents to MLFO from a remote machine. Execute the following to send intents to MLFO and to start the FL process
+
+`cd intent`
+
+`python3 sendintent.py`
+
+Check which cohort configuration are you sending. Details of cohort configuration are as follows
 
 *mlfoadd* gives address:mlfo exposed port of remote machine where the mlfo is running
 
@@ -84,11 +90,11 @@ We send intents to MLFO from a remote machine.
 
 *numround* Number of FL rounds
 
-`cd intents`
+### Send meter
+This script sets meter for FL clients uplink at 100Mbps and downlink at 100Mbps.  IN_PORT number in line 25 needs to be set to correct cohort number which needs to be metered(e.g 1, 2, 3)
 
-Execute the following to send intents to MLFO and to start the FL process
+`sudo python3 sendmeter.py` 
 
-`python3 sendintent.py`
 
 ### Monitoring 
 1. Add Grafana.
@@ -102,15 +108,15 @@ Execute the following to send intents to MLFO and to start the FL process
 3. Add the dashboard by importing *monitoring/dashboard.json* file.
 
 
-5. Open daszweite dashboard at:
-	`http://10.66.2.142:3000/d/ouQy_xDnk/daszweite`
+5. Open dashboard (das):
+	`http://10.66.2.142:3000`
+
+
+Note that prometheus.yml consists of configration which decides which statistics will be pulled from which containers. You may need to comment/uncomment depending on the requirement
 
 
 
-### Send meter
-This script sets meter for FL clients uplink at 100Mbps and downlink at 100Mbps.  IN_PORT number in line 25 needs to be set to correct cohort number which needs to be metered(e.g 1, 2, 3)
 
-`sudo python3 sendmeter.py` 
 
 
 ## Misc commands
