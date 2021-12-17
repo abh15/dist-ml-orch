@@ -19,7 +19,7 @@ Ubuntu 20.04
 
 Clone [Containernet v3.1](https://github.com/containernet/containernet) and install using Option 1 Bare-metal installation
 
-Install [ONOS v2.7.0](https://wiki.onosproject.org/display/ONOS/Developer+Quick+Start) 
+Install [ONOS v2.6.0](https://wiki.onosproject.org/display/ONOS/Developer+Quick+Start) 
 
 
 ## Start ONOS
@@ -112,12 +112,9 @@ This script sets meter for FL clients uplink at 100Mbps and downlink at 100Mbps.
 	`http://10.66.2.142:3000`
 
 
-Note that prometheus.yml consists of configration which decides which statistics will be pulled from which containers. You may need to comment/uncomment depending on the requirement
+Note that prometheus.yml consists of configration which decides which statistics will be pulled from which containers. You may need to comment/uncomment depending on the requirement.
 
-
-
-
-
+Added flows can be checked from the ONOS UI. http://10.66.2.142:8181/onos/ui/#/device 
 
 ## Misc commands
 
